@@ -10,9 +10,9 @@ import (
 	"github.com/ogier/pflag"
 )
 
-var _bind *string = pflag.StringP("bind", "b", "0.0.0.0", "Bind address to listen on")
-var _port *int = pflag.IntP("port", "p", 3000, "HTTP port to listen on")
-var _docker *string = pflag.StringP("docker", "d", "unix:///var/run/docker.sock", "Docker server address")
+var _bind = pflag.StringP("bind", "b", "0.0.0.0", "Bind address to listen on")
+var _port = pflag.IntP("port", "p", 3000, "HTTP port to listen on")
+var _docker = pflag.StringP("docker", "d", "unix:///var/run/docker.sock", "Docker server address")
 
 func main() {
 

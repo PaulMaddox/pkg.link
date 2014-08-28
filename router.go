@@ -9,6 +9,7 @@ import (
 type Context struct {
 }
 
+// NewRouter creates a web router for the main site
 func NewRouter() *web.Router {
 
 	r := web.New(Context{})
@@ -17,13 +18,6 @@ func NewRouter() *web.Router {
 	r.Middleware(web.StaticMiddleware("public"))
 	r.Middleware((*Context).RequestLogger)
 
-	// Setup general routes
-	//r.Get("/", (*Context).Index)
-
 	return r
-
-}
-
-func (c *Context) Index(res web.ResponseWriter, req *web.Request) {
 
 }

@@ -13,6 +13,7 @@ import (
 	"github.com/GeertJohan/go.rice"
 )
 
+// TarGz creates an io.Reader to a tar.gz archive of a path in a go.rice box
 func TarGz(root string, info os.FileInfo, box *rice.Box) (io.Reader, error) {
 
 	buffer := bytes.NewBuffer(nil)

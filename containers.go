@@ -9,6 +9,8 @@ import (
 	"github.com/fsouza/go-dockerclient"
 )
 
+// DeployContainers connects to Docker and builds each of the
+// Docker containers located in the containers/ folder.
 func DeployContainers(client *docker.Client) (int, error) {
 
 	// Iterate the containers/* directory
