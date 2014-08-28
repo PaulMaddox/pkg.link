@@ -16,6 +16,7 @@ var _docker *string = pflag.StringP("docker", "d", "unix:///var/run/docker.sock"
 
 func main() {
 
+	// Parse the CLI arguments
 	pflag.Parse()
 
 	log.Printf("Connecting to docker at %s", *_docker)
@@ -39,9 +40,10 @@ func main() {
 
 	log.Printf("Successfully deployed %d docker containers", count)
 
+	router := NewRouter()
 	bind := fmt.Sprintf("%s:%d", *_bind, *_port)
 	log.Printf("Starting HTTP server on %s", bind)
 	http.Handle("/", http.FileServer(rice.MustFindBox("public").HTTPBox()))
-	log.Fatal(http.ListenAndServe(bind, nil))
+	log.Fatal(http.ListenAndServe(bind, router))
 
 }
